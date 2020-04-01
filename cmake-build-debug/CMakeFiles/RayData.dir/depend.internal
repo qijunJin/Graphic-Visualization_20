@@ -3002,6 +3002,7 @@ CMakeFiles/RayData.dir/src/Scene.cpp.o
  ../include/Lambertian.h
  ../include/Light.h
  ../include/Material.h
+ ../include/MaterialTextura.h
  ../include/Object.h
  ../include/Plane.h
  ../include/Ray.h
@@ -3010,6 +3011,7 @@ CMakeFiles/RayData.dir/src/Scene.cpp.o
  ../include/Scene.h
  ../include/Sphere.h
  ../include/TG.h
+ ../include/Texture.h
  ../include/Translate.h
  ../include/Triangle.h
  /home/user/CLionProjects/dataray-f01/src/Scene.cpp
@@ -3033,6 +3035,7 @@ CMakeFiles/RayData.dir/src/Scene.cpp.o
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qcontainertools_impl.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qcontiguouscache.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qcoreevent.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtCore/qdatastream.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qdebug.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qfile.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qfiledevice.h
@@ -3044,10 +3047,12 @@ CMakeFiles/RayData.dir/src/Scene.cpp.o
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qhashfunctions.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qiodevice.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qiterator.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtCore/qline.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qlist.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qlocale.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qlogging.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qmap.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtCore/qmargins.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qmetatype.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qmutex.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qnamespace.h
@@ -3059,6 +3064,7 @@ CMakeFiles/RayData.dir/src/Scene.cpp.o
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qpair.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qpoint.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qprocessordetection.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtCore/qrect.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qrefcount.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qregexp.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qregularexpression.h
@@ -3067,6 +3073,7 @@ CMakeFiles/RayData.dir/src/Scene.cpp.o
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qshareddata.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qsharedpointer.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qsharedpointer_impl.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtCore/qsize.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qstring.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qstringalgorithms.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qstringbuilder.h
@@ -3083,6 +3090,23 @@ CMakeFiles/RayData.dir/src/Scene.cpp.o
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qvarlengtharray.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qvector.h
  /home/user/Qt/5.14.1/gcc_64/include/QtCore/qversiontagging.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/QColor
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/QImage
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qcolor.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qimage.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qmatrix.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qpaintdevice.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qpainterpath.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qpixelformat.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qpolygon.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qregion.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qrgb.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qrgba64.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qtgui-config.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qtguiglobal.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qtransform.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qwindowdefs.h
+ /home/user/Qt/5.14.1/gcc_64/include/QtGui/qwindowdefs_win.h
 CMakeFiles/RayData.dir/src/SceneFactory.cpp.o
  ../glm/core/_detail.hpp
  ../glm/core/_fixes.hpp

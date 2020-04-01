@@ -86,7 +86,7 @@ void DataReader::baseFound(QStringList fields) {
 
     }
 
-    //scene->objects.push_back(o);
+    scene->objects.push_back(o);
 
 }
 
@@ -165,7 +165,7 @@ void DataReader::dataFound(QStringList fields) {
             o = ObjectFactory::getInstance()->createObject(scaledX, 0.0f, scaledZ, scaledZ, 0, scaledX, scaledZ, 0,
                                                            scaledX, 1, scaledData, props.back());
             //o->aplicaTG(new Translate(vec3(scaledX,0,scaledZ)));
-            o->setMaterial(new Mate(vec3(0.2f), vec3(0.8, 0.8, 0), vec3(1.0f), 10, 0.0f));
+            //o->setMaterial(new Mate(vec3(0.2f), vec3(0.8, 0.8, 0), vec3(1.0f), 10, 0.0f));
             o->aplicaTG(new Scale(vec3(scaledData)));
         } else if (props.back() == ObjectFactory::OBJECT_TYPES::CYLINDER) {
             scaledData = (((fields[3].toDouble() - cyMin) * (255 - 0)) / (cyMax - cyMin)) + 0;

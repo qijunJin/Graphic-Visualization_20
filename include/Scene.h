@@ -35,7 +35,7 @@ public:
 
     void setDimensions(vec3 p1, vec3 p2);
 
-    vec3 BlinnPhong(vec3 point, vec3 normal, const Material *material);
+    vec3 BlinnPhong(vec3 point, vec3 normal, Material *material);
 
     // dimensions de l'escena virtual
     vec3 pmin, pmax;

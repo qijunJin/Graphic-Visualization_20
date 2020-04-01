@@ -1,3 +1,4 @@
+#include <include/MaterialTextura.h>
 #include "Scene.h"
 #include "Plane.h"
 #include "Cylinder.h"
@@ -28,9 +29,15 @@ Scene::~Scene() {
                 delete (Circle *) (objects[i]);
             else if (dynamic_cast<BoundaryObject *>(objects[i]))
                 delete (BoundaryObject *) (objects[i]);
+            else if (dynamic_cast<FittedPlane*>(objects[i]))
+                delete (FittedPlane*) (objects[i]);
         }
     }
-    delete this->ground;
+    for(auto it = this->lights.begin(); it != this->lights.end(); ++it){
+        delete *it;
+    }
+
+    //delete this->ground;
     delete (cam);
 }
 
@@ -105,7 +112,7 @@ vec3 Scene::ComputeColorRay(Ray &ray, int depth) {
     return color;
 }
 
-vec3 Scene::BlinnPhong(vec3 point, vec3 normal, const Material *material) {
+vec3 Scene::BlinnPhong(vec3 point, vec3 normal, Material *material) {
 
     vec3 resultat = vec3(0.0f);
 
@@ -119,11 +126,20 @@ vec3 Scene::BlinnPhong(vec3 point, vec3 normal, const Material *material) {
 
         vec3 p2 = this->pmax;
         vec3 p1 = this->pmin;
-        vec2 uvPoint = vec2(point.x / (p2.x - p1.x) - p1.x / (p2.x - p1.x),
-                            point.z / (p2.z - p1.z) - p1.z / (p2.z - p1.z));
+
+        /* Convert Virtual to UV Space */
+        vec2 uvPoint = vec2((point.x / (p2.x - p1.x)) - (p1.x / (p2.x - p1.x)),
+                            (point.z / (p2.z - p1.z)) - (p1.z / (p2.z - p1.z)));
 
         vec3 ambient = light->ambient * material->ambient;
-        vec3 diffuse = light->diffuse * material->getDiffuse(uvPoint) * glm::max(dot(L, normal), 0.0f);
+        vec3 diffuse;
+        if(MaterialTextura* asd = dynamic_cast<MaterialTextura*>(material)) {
+            vec3 rgb = asd->getDiffuse(uvPoint);
+            diffuse = light->diffuse * rgb * glm::max(dot(L, normal), 0.0f);
+        }
+        else
+            diffuse = light->diffuse * material->getDiffuse(uvPoint) * glm::max(dot(L, normal), 0.0f);
+
         vec3 specular = light->specular * material->specular * (float) pow(glm::max(dot(normal, H), 0.0f), material->beta);
 
         float atenuacio = dot(light->atenuacio, vec3(1.0f, d, pow(d, 2)));
@@ -183,12 +199,12 @@ void Scene::setMaterials(ColorMap *cm) {
 
     for (auto it = this->objects.begin(); it != this->objects.end(); ++it) {
         if ((*it)->getMaterial() == nullptr) {
-            m = new Lambertian(vec3(0.5, 0.2, 0.7));
+            //m = new Lambertian(vec3(0.5, 0.2, 0.7));
             /* modify data objects color depending on the value of data */
             if ((*it)->getData() != -1.0) {
-                //vec3 qwe = cm->getColor((*it)->getData());
-                //std::cerr << (*it)->getData() << std::endl;
-                //std::cerr << "(" << qwe.r << ", " << qwe.g << ", " << qwe.b << ")" << std::endl;
+                vec3 qwe = cm->getColor((*it)->getData());
+                std::cerr << (*it)->getData() << std::endl;
+                std::cerr << "(" << qwe.r << ", " << qwe.g << ", " << qwe.b << ")" << std::endl;
                 //float asd = (*it)->getData();
                 m = new Lambertian(cm->getColor((*it)->getData()));
             } else

@@ -18,7 +18,7 @@ public:
     float     t; // t del raig on s'ha intersecat
     vec3      p;  // punt del raig on hi ha la intersecció
     vec3      normal; // normal en el punt d'intersecció
-    const Material *mat_ptr; // material de l'objecte que s'ha intersectat
+    Material *mat_ptr; // material de l'objecte que s'ha intersectat
 
     IntersectionInfo():
         t(std::numeric_limits<float>::infinity()),
