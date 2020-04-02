@@ -62,10 +62,12 @@ void DataReader::baseFound(QStringList fields) {
 
         float y = -1.0f;
         y = fields[5].toDouble();
-
+/*
         scene->pmin = vec3 (xMin, y, zMin);
         scene->pmax = vec3 (xMax, y, zMax);
-
+*/
+        scene->pmin = vec3 (-5.0f);
+        scene->pmax = vec3 (5.0f);
         o = ObjectFactory::getInstance()->createObject(scene->pmin.x, y, scene->pmin.z, scene->pmax.x, y, scene->pmax.z,
                                                        fields[2].toDouble(), fields[3].toDouble(), fields[4].toDouble(),
                                                        y, 0, ObjectFactory::OBJECT_TYPES::FITTED_PLANE);
@@ -159,8 +161,10 @@ void DataReader::dataFound(QStringList fields) {
             scaledData = (fields[3].toDouble() - cyMin) / (cyMax - cyMin);
             o = ObjectFactory::getInstance()->createObject(0.0f, 0.0f, 0.0f, 0, 0, 0, 0, 0, 0, 1, toColorMapUnderstandable(scaledData),
                                                            props.back());
+
             o->aplicaTG(new Scale(scaledData));
             o->aplicaTG(new Translate(translation));
+
         } else if (props.back() == ObjectFactory::OBJECT_TYPES::BROBJECT) {
             scaledData = (fields[3].toDouble() - brMin) / (brMax - brMin);
             o = ObjectFactory::getInstance()->createObject(objFile, toColorMapUnderstandable(scaledData), props.back());
