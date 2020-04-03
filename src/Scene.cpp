@@ -161,7 +161,7 @@ void Scene::update(int nframe) {
 
 void Scene::setMaterials(ColorMap *cm) {
 
-    Material *m;
+    Material *m;/*
     // TODO: Fase 0
     // Cal canviar el codi per a afegir més materials.
     // TODO: Fase 2
@@ -184,7 +184,7 @@ void Scene::setMaterials(ColorMap *cm) {
             (*it)->setMaterial(m);
         }
     }
-    /*Para DATA
+    Para DATA*/
       for (auto it = this->objects.begin(); it != this->objects.end(); ++it) {
         std::cerr << "Color..." << endl;
         if ((*it)->getMaterial() != nullptr) {
@@ -200,7 +200,7 @@ void Scene::setMaterials(ColorMap *cm) {
         }
         (*it)->setMaterial(m);
     }
-      */
+
 }
 
 void Scene::setDimensions(vec3 p1, vec3 p2) {

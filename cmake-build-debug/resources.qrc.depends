@@ -13,5 +13,6 @@
         <file>resources/dataBCNPuntosVerdes.txt</file>
         <file>resources/dataBCNZoom.txt</file>
         <file>resources/dadesEuropa.txt</file>
+        <file>resources/hospitales_caps_bcn.txt</file>
     </qresource>
 </RCC>

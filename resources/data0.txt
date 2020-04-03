@@ -8,3 +8,4 @@ sphere, 4, -4, 1, 1.5
 sphere, -4, -4, 1, 1.5
 sphere, -4, 4, 1, 1.5
 sphere, 0, 0, 8, 1
+sphere, 0, 0, 2, 1.5
